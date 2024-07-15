@@ -12,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
+
 @RestController
 @RequestMapping("/servicos-beleza/v1")
 @RequiredArgsConstructor
@@ -44,7 +46,7 @@ public class ServicoController {
         return ServicoRequestDB.builder()
                 .nomeServico(dto.nomeServico())
                 .descricaoServico(dto.descricaoServico())
-                .valor(dto.valor())
+                .valor(BigDecimal.valueOf(dto.valor()))
                 .estabelecimentoId(dto.estabelecimentoId())
                 .build();
     }
